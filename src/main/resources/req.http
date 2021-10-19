@@ -5,7 +5,7 @@ Accept: application/json
 
 GET http://localhost:8080/
 Accept: application/json
-Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
+#Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
 
 ###
 
@@ -22,4 +22,9 @@ Content-Type: application/json
 }
 
 ###
+
+###
+GET http://localhost:8080/conta/saldo
+Accept: application/json
+Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
 

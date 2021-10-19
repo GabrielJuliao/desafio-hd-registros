@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.httpBasic()
                 .and().authorizeRequests()
                 .antMatchers("/signup").permitAll()
-                .antMatchers("/", "/**").authenticated()
+                .antMatchers("/", "/conta", "/conta/*").authenticated()
                 .and().csrf().disable().formLogin().disable();
 
         ///allow h2 console
