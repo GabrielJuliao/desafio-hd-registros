@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "desafiohdregistros.sec-config.users-query",
+      "type": "java.lang.String",
+      "description": "Query de usuarios"
+    },
+    {
+      "name": "desafiohdregistros.sec-config.authorities-query",
+      "type": "java.lang.String",
+      "description": "Query de autoridades."
+    }
+  ]
+}
