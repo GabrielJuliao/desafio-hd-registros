@@ -29,3 +29,12 @@ Accept: application/json <br>
 Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
 
 
+### Autorização Http basica
+'username:password' em Base64
+Authorization: Basic <Base64credentials> 
+
+
+
+
+
+
