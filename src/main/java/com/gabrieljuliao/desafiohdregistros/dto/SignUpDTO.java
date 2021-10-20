@@ -6,14 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 public class SignUpDTO {
     private long id;
     @NotBlank
+    @Email
     private String email;
     @NotBlank
     private String password;
@@ -40,7 +41,7 @@ public class SignUpDTO {
                 this.lastName,
                 true,
                 "ROLE_USER",
-                new Conta(BigDecimal.valueOf(100))
+                new Conta(100.0)
         );
     }
 }

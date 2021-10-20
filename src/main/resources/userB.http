@@ -1,0 +1,27 @@
+### Cria usuario
+POST http://localhost:8080/signup
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "johndoe@domain.domain",
+  "password": "password",
+  "firstName": "john",
+  "lastName": "doe"
+}
+
+### Consulta saldo (Autorizaçao basica em base64 usuario:senha)
+GET http://localhost:8080/conta/saldo
+Accept: application/json
+Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
+
+### Transferir (/transferir/{valor em double}/{id da conta de destino})
+POST http://localhost:8080/conta/transferir/10.0/1
+Accept: application/json
+Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
+
+### Consulta extrato (Autorizaçao basica em base64 usuario:senha)
+GET http://localhost:8080/conta/extrato
+Accept: application/json
+Authorization: Basic am9obmRvZUBkb21haW4uZG9tYWluOnBhc3N3b3Jk
+

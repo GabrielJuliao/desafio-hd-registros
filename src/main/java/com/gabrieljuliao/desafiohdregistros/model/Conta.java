@@ -1,23 +1,27 @@
 package com.gabrieljuliao.desafiohdregistros.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal saldo;
+    private Double saldo;
     @OneToOne(mappedBy = "conta")
     private User user;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "conta_transacao")
+    private Set<Transacao> transacao = new HashSet<>();
 
-    public Conta(BigDecimal saldo) {
+    public Conta(Double saldo) {
         this.saldo = saldo;
     }
 }

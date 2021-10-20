@@ -1,11 +1,13 @@
 package com.gabrieljuliao.desafiohdregistros.controllers;
 
+import com.gabrieljuliao.desafiohdregistros.dto.ExtratoDTO;
+import com.gabrieljuliao.desafiohdregistros.dto.SaldoDTO;
+import com.gabrieljuliao.desafiohdregistros.dto.TransacaoDTO;
 import com.gabrieljuliao.desafiohdregistros.services.ContaService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.security.Principal;
 
 @RestController
@@ -18,7 +20,17 @@ public class ContaController {
     }
 
     @GetMapping("/saldo")
-    public BigDecimal getSaldo(Principal principal) {
-        return contaService.consultarSaldo(principal);
+    public ResponseEntity<SaldoDTO> getSaldo(Principal principal) {
+        return new ResponseEntity<>(contaService.consultarSaldo(principal), HttpStatus.OK);
+    }
+
+    @PostMapping("/transferir/{valor}/{destino}")
+    public ResponseEntity<TransacaoDTO> transferir(@PathVariable("valor") Double valor, @PathVariable("destino") Long id, Principal principal) {
+        return new ResponseEntity<>(contaService.transferir(principal, valor, id), HttpStatus.OK);
+    }
+
+    @GetMapping("/extrato")
+    public ResponseEntity<ExtratoDTO> getExtrato(Principal principal) {
+        return new ResponseEntity<>(contaService.tirarExtrato(principal), HttpStatus.OK);
     }
 }

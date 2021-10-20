@@ -12,7 +12,7 @@ import java.util.Collection;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
+    @Column(name = "user_id")
     private Long id;
     @Column(name = "username")
     private String username;
@@ -29,7 +29,6 @@ public class User implements UserDetails {
     @Column(name = "role")
     private String role;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
     private Conta conta;
 
     public User() {

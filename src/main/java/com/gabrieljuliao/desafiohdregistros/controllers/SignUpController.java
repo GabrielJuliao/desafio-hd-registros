@@ -17,11 +17,6 @@ public class SignUpController {
         this.signUpService = signUpService;
     }
 
-    @GetMapping
-    public ResponseEntity<SignUpDTO> getForm(){
-        return new ResponseEntity<>(new SignUpDTO(), HttpStatus.OK);
-    }
-
     @PostMapping(consumes = "application/json")
     public ResponseEntity<SignUpDTO> signUp(@RequestBody @Valid SignUpDTO signUpDTO) {
         return new ResponseEntity<>(signUpService.cadastraUsuario(signUpDTO), HttpStatus.CREATED);
